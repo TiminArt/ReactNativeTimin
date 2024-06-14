@@ -1,44 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, SafeAreaView, Alert, TouchableOpacity, Image, Button} from 'react-native';
 // Подключаем файл с общими стилями 
 import { gStyles } from '../styles/style.js';
 
-export default function Main({ navigation }) {
-    // Функция перехода на другие страницы
-    const goContacts = () => {
-        navigation.navigate('Contacts');
+export default function Main() {
+    // Создаем состояние geniusName с помощью хука useState и устанавливаем начальное значение как пустая строка
+    const [geniusName, setGeniusName] = useState('');
+
+    const onPressButton1 = () => {
+        // Создаем всплывающее окно, в которое будем вводить имя
+        Alert.prompt('Привет!', 'Вы нажали на кнопку! Как зовут этого гения!?', text => {
+            setGeniusName(text);
+            console.log(text);
+        });
     }
-    const goWeather = () => {
-        navigation.navigate('Weather');
-    }
-    // Функция при нажатии на кнопку с вызовом всплывающего окна c текстовым полем, которое выводит введенный текст в консоль.
-    const onPressButton1 = () => Alert.prompt('Привет!', 'Вы нажали на кнопку! Поздравляю!', text => console.log(text));
 
-return (
-    <SafeAreaView style={gStyles.container}>
-        {/* Текст */}
-        <Text style={gStyles.text} >Привет! Это погодное приложение студента Тимина Артемия из группы 211-322!</Text>
+    return (
+        <SafeAreaView style={gStyles.container}>
+            {/* Текст */}
+            <Text style={gStyles.text}>Привет! Это погодное приложение студента Тимина Артемия из группы 211-322!</Text>
 
-        {/* Добавляем изображение и вешаем на него стили  */}
-        <Image style={gStyles.image} source={require('../assets/weather.png')}/>
+            {/* Добавляем изображение и вешаем на него стили  */}
+            <Image style={gStyles.image} source={require('../assets/weather.png')} />
 
-        {/* Кнопка */}
-        <TouchableOpacity style={gStyles.button} onPress={onPressButton1}>
-            <Text style={gStyles.buttonText}>Текстовой ввод</Text>
-        </TouchableOpacity>
+            {/* Кнопка */}
+            <TouchableOpacity style={gStyles.button} onPress={onPressButton1}>
+                <Text style={gStyles.buttonText}>Пример текстового ввода</Text>
+            </TouchableOpacity>
 
-        {/* Кнопка для перехода на вторую страницу */}
-        <TouchableOpacity style={gStyles.button} onPress={goContacts}>
-            <Text style={gStyles.buttonText}>Контакты</Text>
-        </TouchableOpacity>
+            {/* Вывод введенного текста на экран */}
+            {geniusName !== '' && <Text style={gStyles.text}>Если Вы не знали, то Вас зовут {geniusName}</Text>}
 
-        {/* Кнопка для перехода на страницу погоды */}
-        <TouchableOpacity style={gStyles.button} onPress={goWeather}>
-            <Text style={gStyles.buttonText}>Погода</Text>
-        </TouchableOpacity>
-
-        <StatusBar style="auto" />
-    </SafeAreaView>
+            <StatusBar style="auto" />
+        </SafeAreaView>
     );
 }
