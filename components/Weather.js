@@ -21,18 +21,7 @@ export default class extends React.Component {
         this.setState({isLoading: false, temp: data.main.temp, condition: condition});
         const condition = "Clear"
         console.log('Данные', data);
-    };
-
-    // getWeather = async (latitude, longitude) => {
-    //     // Используем аксиос для реализации get - получения данных о погоде (по ссылке, которую получили на OpenWeather - c API ключиком) ps. ссылка в обратных кавычках.
-    //     const {data: {main: {temp}, weather}} = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`); 
-    //     const data = response.data;
-    //     // Когда получаем данные о погоде - убираем экран загрузки 
-    //     this.setState({isLoading: false, temp: data.main.temp, condition: condition});
-    //     const condition = "Clear"
-    //     console.log('Данные', data);
-    // };
-
+    }
 
     // Ассинхронная (должна иметь await) функция получения геопозиции и сохранение ее в переменную.
     getLocation = async () => {
@@ -56,12 +45,14 @@ export default class extends React.Component {
 
     render () {
         // "Распаковка" isLoacing
-        const {isLoading} = this.state;
-        // const {isLoading, temp, condition} = this.state;
+        // const {isLoading} = this.state;
+        const {isLoading, temp, condition} = this.state;
         return (
             // Проверка, находимся ли мы в состоянии загрузки и в погодных данных передаем в качестве пропсов температуру и округляем ее
-            isLoading ? <Loading /> : null
-            // isLoading ? <Loading /> : <DataWeather temp={Math.round(temp)} condition={condition}/>
+            // isLoading ? <Loading /> : null
+            isLoading ? <Loading /> : <DataWeather temp={Math.round(temp)} condition={condition}/>
         );
     };
 };
+
+// Данные при помощи API получаются (и при необходимости выводятся в терминал), но они не хотят выводится на страницу :(
