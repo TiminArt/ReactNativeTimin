@@ -1,40 +1,32 @@
-// import React from 'react';
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import React from 'react';
 import Main from './components/Main.js';
 import Contacts from './components/Contacts.js';
 import Weather from './components/Weather.js';
 
-function MainComponent() {
-    return (
-        <Main />
-    );
-}
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { gStyles } from './styles/style.js';
 
-function ContactsComponent() {
-    return (
-        <Contacts />
-    );
-}
+const Stack = createStackNavigator();
 
-function WeatherComponent() {
-    return (
-        <Weather />
-    );
-}
-
-const Tab = createBottomTabNavigator();
-
-export default function Navigate() {
-    return (
-    <NavigationContainer>
-        <Tab.Navigator>
-            <Tab.Screen name="Main" options={{title: 'Главная'}} component={MainComponent}/>
-            <Tab.Screen name="Contacts" options={{title: 'Контакты'}} component={ContactsComponent}/>
-            <Tab.Screen name="Weather" options={{title: 'Погода'}} component={WeatherComponent} />
-        </Tab.Navigator>
-    </NavigationContainer>
-    );
+export default function Navigate() { 
+    return <NavigationContainer style={gStyles.container}> 
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Main"
+                component={Main}
+                options={{title: 'Главная'}}
+            />
+            <Stack.Screen
+                name="Contacts"
+                component={Contacts}
+                options={{title: 'Контакты'}}
+            />
+            <Stack.Screen
+                name="Weather"
+                component={Weather}
+                options={{title: 'Погода'}}
+            />
+        </Stack.Navigator>
+    </NavigationContainer>;
 }

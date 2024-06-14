@@ -43,12 +43,12 @@ export default class extends React.Component {
 
     render () {
         // "Распаковка" isLoacing
-        const {isLoading} = this.state;
-        // const {isLoading, temp} = this.state;
+        // const {isLoading} = this.state;
+        const {isLoading, temp} = this.state;
         return (
             // Проверка, находимся ли мы в состоянии загрузки и в погодных данных передаем в качестве пропсов температуру
-            isLoading ? <Loading /> : null
-            // isLoading ? <Loading /> : <DataWeather temp={temp}/>
+            // isLoading ? <Loading /> : null
+            isLoading ? <Loading /> : <DataWeather temp={temp}/>
         );
     };
 };

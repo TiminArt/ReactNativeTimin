@@ -1,34 +1,14 @@
-import React, { useRef } from 'react';
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Text, SafeAreaView } from 'react-native';
+import { gStyles } from '../styles/style.js';
 
-// import Video from 'react-native-video';
-import Video, {VideoRef} from 'react-native-video';
+export default function Contacts() {
 
-const VideoPlayer = () => {
-    // const videoRef = useRef(`https://www.youtube.com/watch?v=6SvP_fUttHk`);
-    const background = require('../assets/background.mp4');
-    const onBuffer = () => { console.log('Buffering');};
-    const onError = () => { console.log('Error loading video') };
-
-    return (
-        <Video
-            source={background}
-            // ref={videoRef}
-            onBuffer={onBuffer}
-            onError={onError}
-            style={styles.backgroundVideo}
-        />
-    )
+return (
+    <SafeAreaView style={gStyles.container}>
+        <Text style={gStyles.text} >Странница контактов</Text>
+        <StatusBar style="auto" />
+    </SafeAreaView>
+    );
 }
-
-var styles = StyleSheet.create({
-    backgroundVideo: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-    },
-});
-
-export default VideoPlayer;

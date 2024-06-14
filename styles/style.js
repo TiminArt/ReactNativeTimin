@@ -1,5 +1,5 @@
 // Файл с общими стилями, которые можно будет использовать на разных страницах
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 
 export const gStyles = StyleSheet.create({
@@ -10,20 +10,8 @@ export const gStyles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
+        color: '#EDE8E4',
         textAlign: 'center',
-        // Для примера сделал другой цвет обычного текста на разных платформах.
-        ...Platform.select({
-            ios: {
-                color: '#EDE8E4'
-            },
-            android: {
-                color: 'green'
-            },
-            default: {
-                // Для других платформ (веб...)
-                color: 'white',
-            },
-        }),
     },
     button: {
         backgroundColor: '#fff',
