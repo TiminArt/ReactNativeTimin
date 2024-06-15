@@ -25,6 +25,13 @@ export const gStyles = StyleSheet.create({
             },
         }),
     },
+    title: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 18,
+        margin: 12,
+        fontWeight: 'bold',
+    },
     button: {
         backgroundColor: '#fff',
         padding: 10,

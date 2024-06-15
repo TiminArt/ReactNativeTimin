@@ -55,6 +55,9 @@ export default function App() {
     return (
         <SafeAreaView style={gStyles.container}>
             {/* Видео */}
+            <Text style={gStyles.title}>
+                Мультик про большого кролика
+            </Text>
             <VideoView
                 ref={ref}
                 style={gStyles.video}
@@ -73,8 +76,13 @@ export default function App() {
                     }}>
                 <Text style={gStyles.buttonText}>{isPlaying ? 'Пауза' : 'Продолжить'}</Text>
             </TouchableOpacity>
-            
+            <Text style={gStyles.title}>
+                ********************************************
+            </Text>
             {/* Музыка  */}
+            <Text style={gStyles.title}>
+                Песня: Twenty One Pilots - The Craving
+            </Text>
             <TouchableOpacity style={gStyles.button} onPress={playSound}>
                 <Text style={gStyles.buttonText}>{isMusicPlaying ? 'Остановить музыку' : 'Включить музыку'}</Text>
             </TouchableOpacity>
