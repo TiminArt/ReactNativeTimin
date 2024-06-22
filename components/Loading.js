@@ -5,7 +5,7 @@ import { gStyles } from "../styles/style";
 export default function Loading() {
     return (
         <SafeAreaView style={gStyles.container}>
-            <Text style={gStyles.text}>Получение погоды...</Text>
+            <Text style={gStyles.title}>Получение погоды...</Text>
         </SafeAreaView>
     )
 }

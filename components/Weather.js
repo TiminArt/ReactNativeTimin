@@ -14,16 +14,21 @@ export default class extends React.Component {
     };
     // Ассинхронная функция для получения погоды 
     getWeather = async (latitude, longitude) => {
-        // Используем аксиос для реализации get - получения данных о погоде (по ссылке, которую получили на OpenWeather - c API ключиком) ps. ссылка в обратных кавычках.
+        // Используем аксиос для реализации get - получения данных о погоде (по ссылке, которую получили на OpenWeather - c API ключиком) ps. ссылка 
+        // в обратных кавычках.
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`); 
         const data = response.data;
         // Когда получаем данные о погоде - убираем экран загрузки 
-        this.setState({isLoading: false, temp: data.main.temp, condition: condition});
-        const condition = "Clear"
-        console.log('Данные', data);
+        this.setState({
+            isLoading: false, 
+            temp: data.main.temp, 
+            condition: data.weather[0].main,
+        });
+        console.log('Данные', data.weather[0].main);
     }
 
-    // Ассинхронная (должна иметь await) функция получения геопозиции и сохранение ее в переменную.
+    // Ассинхронная (должна иметь await) функция получения геопозиции и сохранение 
+    // ее в переменную.
     getLocation = async () => {
         try {
             // Запрашивает у пользователя разрешения на определение местоположения. 
@@ -45,14 +50,10 @@ export default class extends React.Component {
 
     render () {
         // "Распаковка" isLoacing
-        // const {isLoading} = this.state;
         const {isLoading, temp, condition} = this.state;
         return (
-            // Проверка, находимся ли мы в состоянии загрузки и в погодных данных передаем в качестве пропсов температуру и округляем ее
-            // isLoading ? <Loading /> : null
+            // Проверка, находимся ли мы в состоянии загрузки и в погодных данных передаем в качестве пропсов температуру и округляем ее.
             isLoading ? <Loading /> : <DataWeather temp={Math.round(temp)} condition={condition}/>
         );
     };
 };
-
-// Данные при помощи API получаются (и при необходимости выводятся в терминал), но они не хотят выводится на страницу :(

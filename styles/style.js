@@ -1,7 +1,6 @@
 // Файл с общими стилями, которые можно будет использовать на разных страницах
 import { StyleSheet, Platform } from 'react-native';
 
-
 export const gStyles = StyleSheet.create({
     container: {
         flex: 1,
@@ -9,8 +8,48 @@ export const gStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    containerGradient: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    halfContainerGradient: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    tempDescription: {
+        backgroundColor: '#fff',
+        alignItems: 'start',
+        justifyContent: 'start',
+        margin: 20,
+        borderRadius: 40,
+        fontWeight: 'bold',
+        marginTop: 150,
+    },
+    textTemp: {
+        textAlign: 'center',
+        color: '#25516E',
+        margin: 25,
+        fontSize: 16,
+    },
+    temp: {
+        color: '#fff',
+        fontSize: 55,
+        fontWeight: 'bold',
+        margin: 10,
+    },
+    title: {
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 18,
+        margin: 12,
+        fontWeight: 'bold',
+    },
     text: {
         textAlign: 'center',
+        margin: 15,
+        fontSize: 16,
         // Для примера сделал другой цвет обычного текста на разных платформах.
         ...Platform.select({
             ios: {
@@ -24,13 +63,6 @@ export const gStyles = StyleSheet.create({
                 color: 'white',
             },
         }),
-    },
-    title: {
-        color: '#fff',
-        textAlign: 'center',
-        fontSize: 18,
-        margin: 12,
-        fontWeight: 'bold',
     },
     button: {
         backgroundColor: '#fff',
@@ -53,5 +85,5 @@ export const gStyles = StyleSheet.create({
     video: {
         width: 350,
         height: 275,
-    }
+    },
 });

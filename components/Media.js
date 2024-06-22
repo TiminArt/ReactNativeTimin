@@ -1,7 +1,8 @@
+import { useState, useRef, useEffect  } from 'react';
+import { SafeAreaView, TouchableOpacity, Text } from 'react-native';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { Audio } from 'expo-av';
-import { useEffect, useRef, useState } from 'react';
-import { SafeAreaView, TouchableOpacity, Text } from 'react-native';
+
 import { gStyles } from '../styles/style.js';
 
 // Прямая ссылка к видео
@@ -10,7 +11,6 @@ const videoSource = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/
 export default function App() {
     // (Музыка) Создание состояния sound (объект звука) с помощью хука useState(). Переменная setSound - функция для обновления
     const [sound, setSound] = useState();
-    // (Музыка) isMusicPlaying - состояние играет ли музыка. setIsMusicPlaying - обновление состояния. При инициализации устанавливается в false (музыка не играет)
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
     // (Видео) Ref будет использоваться для доступа к элементам компонента. Странно, но ни за что не отвечает (но оно было в доке - решил оставить на всякий)
