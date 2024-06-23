@@ -8,4 +8,4 @@ export default function Loading() {
             <Text style={gStyles.title}>Получение погоды...</Text>
         </SafeAreaView>
     )
-}
+};

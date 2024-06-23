@@ -81,7 +81,7 @@ export default function App() {
             </Text>
             {/* Музыка  */}
             <Text style={gStyles.title}>
-                Песня: Twenty One Pilots - The Craving
+                Twenty One Pilots - The Craving
             </Text>
             <TouchableOpacity style={gStyles.button} onPress={playSound}>
                 <Text style={gStyles.buttonText}>{isMusicPlaying ? 'Остановить музыку' : 'Включить музыку'}</Text>

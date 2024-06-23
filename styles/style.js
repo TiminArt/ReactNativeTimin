@@ -13,31 +13,38 @@ export const gStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    containerGradients: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     halfContainerGradient: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    tempDescription: {
-        backgroundColor: '#fff',
+    tempDescriptionConteiner: {
         alignItems: 'start',
         justifyContent: 'start',
         margin: 20,
         borderRadius: 40,
         fontWeight: 'bold',
-        marginTop: 150,
+        marginTop: 100,
     },
-    textTemp: {
-        textAlign: 'center',
-        color: '#25516E',
+    tempText: {
+        color: 'white',
         margin: 25,
-        fontSize: 16,
+        fontSize: 20,
+        textShadowColor: 'rgba(30, 122, 227, 0.75)',
+        textShadowRadius: 10,
     },
     temp: {
-        color: '#fff',
+        color: 'white',
         fontSize: 55,
         fontWeight: 'bold',
-        margin: 10,
+        marginLeft: 20,
+        textShadowColor: 'rgba(30, 122, 227, 0.75)',
+        textShadowRadius: 10,
     },
     title: {
         color: '#fff',
@@ -85,5 +92,5 @@ export const gStyles = StyleSheet.create({
     video: {
         width: 350,
         height: 275,
-    },
+    }
 });

@@ -20,7 +20,7 @@ export default function Main() {
     if (majorVersionIOS >= 10) {
         console.log('Ваша версия IOS старше 10 и имеет номер', majorVersionIOS)
     };
-
+    
     return (
         <SafeAreaView style={gStyles.container}>   
             {/* Текст */}
@@ -31,7 +31,7 @@ export default function Main() {
             <Image style={gStyles.image} source={require('../assets/weather.png')} />
             {/* Кнопка */}
             <TouchableOpacity style={gStyles.button} onPress={onPressButton}>
-                <Text style={gStyles.buttonText}>Пример текстового ввода</Text>
+                <Text style={gStyles.buttonText}>Как Вас зовут?</Text>
             </TouchableOpacity>
             {/* Вывод введенного текста на экран */}
             {geniusName !== '' && <Text style={gStyles.text}>Ps. Если Вы забыли, то Вас зовут {geniusName}</Text>}
@@ -39,6 +39,3 @@ export default function Main() {
         </SafeAreaView>
     );
 }
-
-
-
