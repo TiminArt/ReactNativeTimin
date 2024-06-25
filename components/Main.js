@@ -6,7 +6,7 @@ import { gStyles } from '../styles/style.js';
 
 export default function Main() {
     // Создаем состояние geniusName с помощью хука useState и устанавливаем начальное значение как пустая строка
-    const [geniusName, setGeniusName] = useState('');
+    const [geniusName, setGeniusName, versionIOS] = useState('');
 
     const onPressButton = () => {
         // Создаем всплывающее окно, в которое будем вводить имя
@@ -18,7 +18,8 @@ export default function Main() {
 
     const majorVersionIOS = parseInt(Platform.Version, 10);
     if (majorVersionIOS >= 10) {
-        console.log('Ваша версия IOS старше 10 и имеет номер', majorVersionIOS)
+        const versionIOS = majorVersionIOS;
+        console.log(versionIOS);
     };
     
     return (
@@ -34,7 +35,8 @@ export default function Main() {
                 <Text style={gStyles.buttonText}>Как Вас зовут?</Text>
             </TouchableOpacity>
             {/* Вывод введенного текста на экран */}
-            {geniusName !== '' && <Text style={gStyles.text}>Ps. Если Вы забыли, то Вас зовут {geniusName}</Text>}
+            {geniusName !== '' && <Text style={gStyles.text}>Ps. Если Вы забыли, то Вас зовут {geniusName}.</Text>}
+            {majorVersionIOS !== '' && <Text style={gStyles.text}>Кстати, Ваша версия ОС {majorVersionIOS}.</Text>}
             <StatusBar style="auto" />
         </SafeAreaView>
     );

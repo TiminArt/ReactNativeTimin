@@ -24,7 +24,7 @@ export default class extends React.Component {
             temp: data.main.temp, 
             condition: data.weather[0].main,
         });
-        console.log('Данные', data.weather[0].main);
+        // console.log('Погодные условия в Вашем регионе: ', data.weather[0].main);
     }
 
     // Ассинхронная (должна иметь await) функция получения геопозиции и сохранение 
